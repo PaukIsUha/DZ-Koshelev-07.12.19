@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+	double n, granA, granB;
+	cin >> n;
+	for (int i = 1; true; ++i) 
+	{
+		if (i * i > n) 
+		{
+			granB = i;
+			granA = i - 1;
+			break;
+		}
+		else if (i * i == n) 
+		{
+			cout << i;
+			return 0;
+		}
+	}
+	double unit;
+	for (int i = 0; i < 20; ++i) 
+	{
+		unit = (granA + granB) / 2;
+		if (unit * unit > n)
+			granB = unit;
+		else if (unit * unit == n)
+			break;
+		else
+			granA = unit;
+	}
+	cout << unit;
+	return 0;
+}
